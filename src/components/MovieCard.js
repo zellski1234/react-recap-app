@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components';
 
 const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) =>{
     return (
@@ -20,3 +21,7 @@ const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) =>{
 };
 
 export default MovieCard;
+
+// const Button = styled.button`
+//   color: grey;
+// `;

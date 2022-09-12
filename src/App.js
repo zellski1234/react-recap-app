@@ -1,7 +1,8 @@
-// import './App.css';
+import './App.css';
 import SearchIcon from './search.svg';
 import { useEffect, useState } from "react";
 import MovieCard from './components/MovieCard';
+import styled from 'styled-components';
 
 const API_URL = 'http://omdbapi.com?apikey=a28de950'
 
@@ -23,7 +24,7 @@ function App() {
 	}
 
 	return (
-		<div className="App">
+		<GreatDiv >
 			<h1>My Movie App</h1>
 			<div className="search">
 				<input 
@@ -51,8 +52,14 @@ function App() {
 					</div>
 				)
 			}
-		</div>
+		</GreatDiv>
 	);
 }
 
 export default App;
+
+const GreatDiv = styled.button`
+  /* color: grey; */
+  background-color: rgb(224, 224, 224);
+  border: none;
+`;
