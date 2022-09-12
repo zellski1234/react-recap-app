@@ -17,11 +17,7 @@ function Login({setter}) {
   return (
     <div>
         <form onSubmit={submitHandler}>
-            {/* <label> name:
-                <input onChange={(e) => setName(e.target.value)}/>
-            </label>
-            <br></br> */}
-
+    
             <label> Email:
                 <input onChange={(e) => setEmail(e.target.value)}/>
             </label>

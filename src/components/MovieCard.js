@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) =>{
     return (

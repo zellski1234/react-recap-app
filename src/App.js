@@ -28,34 +28,37 @@ function App() {
 	return (
 		<GreatDiv >
 			<Login setter={setUser} />
-			{user ? <h1>{user} logged in</h1> : <h1>user not  logged in </h1>}
-			<h1>My Movie App</h1>
-			<div className="search">
-				<input 
-					placeholder="Search for a film"
-					value={searchTerm}
-					onChange={(e) => setSearchTerm(e.target.value) }				
-				/>
-				<img
-					src={SearchIcon}
-					alt='search'
-					onClick={()=> searchFilms(searchTerm)}
-				/>
-			</div>
-			{ movies?.length > 0
-			// if movies length is greater than zero
-				?(
-					<div className='container'> 
-						{movies.map((movie) => (
-							<MovieCard movie={movie} />
-						))}
-					</div>
-				) : (
-					<div className='empty'>
-						<h2>No movies found</h2>
-					</div>
-				)
-			}
+			{console.log(user)}
+			{user ? <div>
+				<h1>My Movie App</h1>
+				<div className="search">
+					<input 
+						placeholder="Search for a film"
+						value={searchTerm}
+						onChange={(e) => setSearchTerm(e.target.value) }				
+					/>
+					<img
+						src={SearchIcon}
+						alt='search'
+						onClick={()=> searchFilms(searchTerm)}
+					/>
+				</div>
+				{ movies?.length > 0
+				// if movies length is greater than zero
+					?(
+						<div className='container'> 
+							{movies.map((movie) => (
+								<MovieCard movie={movie} />
+							))}
+						</div>
+					) : (
+						<div className='empty'>
+							<h2>No movies found</h2>
+						</div>
+					)
+				}
+			</div> : <h1>user not  logged in </h1>}
+			
 		</GreatDiv>
 	);
 }
