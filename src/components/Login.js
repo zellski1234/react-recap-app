@@ -1,30 +1,43 @@
-import React from 'react'
+import React from 'react';
 import { useState } from "react";
+import { login } from '../utils';
 
 function Login({setter}) {
-    const [username, setUsername] = useState()
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
+    // const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
     
+    async function submitHandler (e) {
+        e.preventDefault();
+        await login(email, password, setter);
+
+    };
+
+
   return (
     <div>
-        <form>
-            <label> Username
-                <input onChange={(e) => setUsername(e.target.value)}/>
-                <br></br>
+        <form onSubmit={submitHandler}>
+            {/* <label> name:
+                <input onChange={(e) => setName(e.target.value)}/>
             </label>
-            <label> Email
+            <br></br> */}
+
+            <label> Email:
                 <input onChange={(e) => setEmail(e.target.value)}/>
-                <br></br>
             </label>
-            <label> Password
+            <br></br>
+
+            <label> Password:
                 <input onChange={(e) => setPassword(e.target.value)}/>
-                <br></br>
             </label>
+            <br></br>
+
+            <button type="submit">Click here to login</button>
+            
 
         </form>
     </div>
   )
-}
+};
 
-export default Login
+export default Login;

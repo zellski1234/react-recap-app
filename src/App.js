@@ -3,6 +3,7 @@ import SearchIcon from './search.svg';
 import { useEffect, useState } from "react";
 import MovieCard from './components/MovieCard';
 import styled from 'styled-components';
+import Login from './components/Login';
 
 const API_URL = 'http://omdbapi.com?apikey=a28de950'
 
@@ -10,6 +11,7 @@ function App() {
 
 	const [searchTerm, setSearchTerm] = useState("")
 	const [movies, setMovies] = useState([])
+	const [user, setUser] = useState()
 
 	useEffect(() => {
 		searchFilms('Batman')
@@ -25,6 +27,8 @@ function App() {
 
 	return (
 		<GreatDiv >
+			<Login setter={setUser} />
+			{user ? <h1>{user} logged in</h1> : <h1>user not  logged in </h1>}
 			<h1>My Movie App</h1>
 			<div className="search">
 				<input 
