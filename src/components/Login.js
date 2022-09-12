@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import { login } from '../utils';
+import styled from 'styled-components';
 
 function Login({setter}) {
     // const [name, setName] = useState();
@@ -15,25 +16,56 @@ function Login({setter}) {
 
 
   return (
-    <div>
+    <GreatDiv>
         <form onSubmit={submitHandler}>
-    
-            <label> Email:
-                <input onChange={(e) => setEmail(e.target.value)}/>
-            </label>
-            <br></br>
+            <div>
+                <label> Email:
+                    <input onChange={(e) => setEmail(e.target.value)}/>
+                </label>
+                <br></br>
+            </div>
 
-            <label> Password:
-                <input onChange={(e) => setPassword(e.target.value)}/>
-            </label>
-            <br></br>
+            <div>
+                <label> Password:
+                    <input onChange={(e) => setPassword(e.target.value)}/>
+                </label>
+                <br></br>
+            </div>
 
             <button type="submit">Click here to login</button>
             
 
         </form>
-    </div>
+    </GreatDiv>
   )
 };
 
 export default Login;
+
+const GreatDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    form {
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    label {
+        display: flex;
+        align-items: flex-start;
+        border: 1px solid beige;
+        flex-direction: column;
+    }
+    input {
+        text-align: center;
+    }
+    
+`
