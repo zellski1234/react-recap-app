@@ -1,43 +1,40 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { listUser } from '../utils';
 
+function ListUser({setter}) {
+    const [usernames, setUsernames] = useState()
+    const [clicked, setClicked] = useState(false)
 
-function ListUser() {
-    // const [name, setName] = useState();
-    // const [email, setEmail] = useState();
-    // const [password, setPassword] = useState();
-    const [list, setList] = useState([]);
-   
-//    async function submitHandler (e) {
-//        e.preventDefault();
-//        await listUser(setter);
-
-//    };
-
-   const listUser = async () => {
-    try {
-        const response = await fetch("http://localhost:5000/user/", {
-            method:"GET",
-            headers: {"Content-Type": "application/json"}
-        })
-        const data = await response.json()
-        console.log(data)
-        setList(data)
-
-    } catch (error) {
-        console.error(error)
+    const loadUsernames = async () => {
+        let users = await listUser()
+        console.log(users)
+        setUsernames(users)
     }
 
-}
+    useEffect (() =>{
+        loadUsernames()
+    },)
 
+    return (
+        <div className='usernames'>
 
- return (
-   <div>
-        <button onClick={()=>listUser()}>List Users</button>
-        {list}
-   </div>
- )
+            <button onClick={()=> setClicked(!clicked)}> List Users Names </button>
+            { clicked
+                ?(
+                    <div className="contain">
+                    {usernames.map((user) => (
+                        <p>{`${user}`}</p>
+                    ))}
+                    </div>
+                ) : (
+                    <div className="empty">
+                        {/* <h2>No users found</h2> */}
+                    </div>
+                )
+            }
+        </div>
+    )
 }
 
 export default ListUser;

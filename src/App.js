@@ -5,6 +5,7 @@ import MovieCard from './components/MovieCard';
 import styled from 'styled-components';
 import Login from './components/Login';
 import ListUser from './components/ListUser';
+import UpdateFunc from './components/UpdateFunc';
 
 const API_URL = 'http://omdbapi.com?apikey=a28de950'
 
@@ -13,7 +14,6 @@ function App() {
 	const [searchTerm, setSearchTerm] = useState("")
 	const [movies, setMovies] = useState([])
 	const [user, setUser] = useState()
-	const [info, setInfo] = useState([])
 
 	useEffect(() => {
 		searchFilms('Batman')
@@ -31,10 +31,10 @@ function App() {
 	// page if statement
 	if (user) {
 		page = <div>
-			<ListUser setter={setInfo}/>
-			{info?.length > 0 ? (<div>{info}</div>) : (<div> no info</div>)}
+			<ListUser />
+			<UpdateFunc />
 			<h1>My Movie App</h1>
-			{/* <div className="search">
+			<div className="search">
 				<input 
 					placeholder="Search for a film"
 					value={searchTerm}
@@ -59,7 +59,7 @@ function App() {
 						<h2>No movies found</h2>
 					</div>
 				)
-			} */}
+			}
 		</div>
 	} else {
 		page = <h1>user not  logged in </h1>
@@ -68,6 +68,7 @@ function App() {
 		<GreatDiv >
 			<Login setter={setUser} />
 			{page}
+			
 		
 		</GreatDiv>
 	);

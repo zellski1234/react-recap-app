@@ -1,46 +1,43 @@
-import React from 'react';
+import React from 'react'
 import { useState } from "react";
-import { login } from '../utils';
+import { update } from '../utils';
 import styled from 'styled-components';
 
-function Login({setter}) {
-    // const [name, setName] = useState();
-    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();
-    
+function UpdateFunc() {
+
+    const [token, setToken] = useState();
+    const [name, setName] = useState();
+
     async function submitHandler (e) {
         e.preventDefault();
-        await login(email, password, setter);
+        await update(token, name)
 
     };
 
-
   return (
     <GreatDiv>
-        <form onSubmit={submitHandler}>
+         <form onSubmit={submitHandler}>
             <div>
-                <label> Email:
-                    <input onChange={(e) => setEmail(e.target.value)}/>
+                <label> Token:
+                    <input onChange={(e) => setToken(e.target.value)}/>
+                </label>
+                <br></br>
+            </div>
+            <div>
+                <label> New Name:
+                    <input onChange={(e) => setName(e.target.value)}/>
                 </label>
                 <br></br>
             </div>
 
-            <div>
-                <label> Password:
-                    <input onChange={(e) => setPassword(e.target.value)}/>
-                </label>
-                <br></br>
-            </div>
-
-            <button type="submit">Click here to login</button>
-            
+            <button type="submit">click here to change name</button>
 
         </form>
     </GreatDiv>
   )
-};
+}
 
-export default Login;
+export default UpdateFunc
 
 const GreatDiv = styled.div`
     display: flex;
