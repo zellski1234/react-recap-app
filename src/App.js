@@ -14,6 +14,7 @@ function App() {
 	const [searchTerm, setSearchTerm] = useState("")
 	const [movies, setMovies] = useState([])
 	const [user, setUser] = useState()
+	const [clicked, setClicked] = useState(false)
 
 	useEffect(() => {
 		searchFilms('Batman')
@@ -31,7 +32,7 @@ function App() {
 	// page if statement
 	if (user) {
 		page = <div>
-			<ListUser />
+			<ListUser clicked={clicked} setClicked={setClicked}/>
 			<UpdateFunc />
 			<h1>My Movie App</h1>
 			<div className="search">

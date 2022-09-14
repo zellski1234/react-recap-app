@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from "react";
-import { update } from '../utils';
+import { update, listUser } from '../utils';
 import styled from 'styled-components';
 
 function UpdateFunc() {
@@ -11,7 +11,7 @@ function UpdateFunc() {
     async function submitHandler (e) {
         e.preventDefault();
         await update(token, name)
-
+        listUser()
     };
 
   return (

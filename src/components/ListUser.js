@@ -2,9 +2,8 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import { listUser } from '../utils';
 
-function ListUser({setter}) {
+function ListUser({setter, clicked, setClicked}) {
     const [usernames, setUsernames] = useState()
-    const [clicked, setClicked] = useState(false)
 
     const loadUsernames = async () => {
         let users = await listUser()
@@ -14,7 +13,7 @@ function ListUser({setter}) {
 
     useEffect (() =>{
         loadUsernames()
-    },)
+    },[])
 
     return (
         <div className='usernames'>
