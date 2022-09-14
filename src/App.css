@@ -4,6 +4,33 @@ body {
 	background-color: rgb(224, 224, 224);
 }
 
+
+button{
+	background: #00e065;
+	background-image: -webkit-linear-gradient(top, #00e065, #1ebd68);
+	background-image: -moz-linear-gradient(top, #00e065, #1ebd68);
+	background-image: -ms-linear-gradient(top, #00e065, #1ebd68);
+	background-image: -o-linear-gradient(top, #00e065, #1ebd68);
+	background-image: linear-gradient(to bottom, #00e065, #1ebd68);
+	-webkit-border-radius: 21;
+	-moz-border-radius: 21;
+	border-radius: 21px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 17px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+}
+button:hover {
+	background: #0bc25e;
+	background-image: -webkit-linear-gradient(top, #0bc25e, #149c51);
+	background-image: -moz-linear-gradient(top, #0bc25e, #149c51);
+	background-image: -ms-linear-gradient(top, #0bc25e, #149c51);
+	background-image: -o-linear-gradient(top, #0bc25e, #149c51);
+	background-image: linear-gradient(to bottom, #0bc25e, #149c51);
+	text-decoration: none;
+  }
+
 .search {
 	display: flex;
 	justify-content: center;

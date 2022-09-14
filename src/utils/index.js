@@ -11,7 +11,7 @@ export const login = async ( email, password, setter) => {
             })
         })
         const data = await response.json()
-        console.log(data.token)
+        // console.log(data.token)
         console.log(data.user)
         setter(data.user)
         return data.token
@@ -31,7 +31,6 @@ export const listUser = async ( setter ) => {
         
         const data = await response.json()
         const userData = data.map(users => users.name)
-        console.log(userData)
         return userData 
 
     } catch (error) {

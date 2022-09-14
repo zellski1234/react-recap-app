@@ -3,9 +3,7 @@ import { useState } from "react";
 import { update, listUser } from '../utils';
 import styled from 'styled-components';
 
-function UpdateFunc() {
-
-    const [token, setToken] = useState();
+function Update({token}) {
     const [name, setName] = useState();
 
     async function submitHandler (e) {
@@ -18,26 +16,20 @@ function UpdateFunc() {
     <GreatDiv>
          <form onSubmit={submitHandler}>
             <div>
-                <label> Token:
-                    <input onChange={(e) => setToken(e.target.value)}/>
-                </label>
-                <br></br>
-            </div>
-            <div>
                 <label> New Name:
                     <input onChange={(e) => setName(e.target.value)}/>
                 </label>
                 <br></br>
             </div>
 
-            <button type="submit">click here to change name</button>
+            <button type="submit" >click here to change name</button>
 
         </form>
     </GreatDiv>
   )
 }
 
-export default UpdateFunc
+export default Update
 
 const GreatDiv = styled.div`
     display: flex;

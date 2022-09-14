@@ -4,16 +4,16 @@ import { listUser } from '../utils';
 
 function ListUser({setter, clicked, setClicked}) {
     const [usernames, setUsernames] = useState()
+    // const [clicked, setClicked] = useState(false)
 
     const loadUsernames = async () => {
         let users = await listUser()
-        console.log(users)
         setUsernames(users)
     }
 
     useEffect (() =>{
         loadUsernames()
-    },[])
+    },)
 
     return (
         <div className='usernames'>
@@ -22,8 +22,8 @@ function ListUser({setter, clicked, setClicked}) {
             { clicked
                 ?(
                     <div className="contain">
-                    {usernames.map((user) => (
-                        <p>{`${user}`}</p>
+                    {usernames.map((user, index) => (
+                        <p key={index}>{`${user}`}</p>
                     ))}
                     </div>
                 ) : (

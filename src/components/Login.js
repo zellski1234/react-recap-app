@@ -3,15 +3,15 @@ import { useState } from "react";
 import { login } from '../utils';
 import styled from 'styled-components';
 
-function Login({setter}) {
+function Login({setter, setToken}) {
     // const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     
     async function submitHandler (e) {
         e.preventDefault();
-        await login(email, password, setter);
-
+        let token = await login(email, password, setter);
+        setToken(token)
     };
 
 

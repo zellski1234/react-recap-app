@@ -5,7 +5,7 @@ import MovieCard from './components/MovieCard';
 import styled from 'styled-components';
 import Login from './components/Login';
 import ListUser from './components/ListUser';
-import UpdateFunc from './components/UpdateFunc';
+import Update from './components/Update';
 
 const API_URL = 'http://omdbapi.com?apikey=a28de950'
 
@@ -14,7 +14,8 @@ function App() {
 	const [searchTerm, setSearchTerm] = useState("")
 	const [movies, setMovies] = useState([])
 	const [user, setUser] = useState()
-	const [clicked, setClicked] = useState(false)
+	const [token, setToken] = useState("")
+	const [clicked2, setClicked2] = useState(false)
 
 	useEffect(() => {
 		searchFilms('Batman')
@@ -32,8 +33,8 @@ function App() {
 	// page if statement
 	if (user) {
 		page = <div>
-			<ListUser clicked={clicked} setClicked={setClicked}/>
-			<UpdateFunc />
+			<ListUser clicked={clicked2} setClicked={setClicked2}/>
+			<Update clicked2={clicked2} setClicked2={setClicked2} token={token} />
 			<h1>My Movie App</h1>
 			<div className="search">
 				<input 
@@ -51,8 +52,8 @@ function App() {
 			// if movies length is greater than zero
 				?(
 					<div className='container'> 
-						{movies.map((movie) => (
-							<MovieCard movie={movie} />
+						{movies.map((movie, index) => (
+							<MovieCard key={index} movie={movie} />
 						))}
 					</div>
 				) : (
@@ -63,22 +64,21 @@ function App() {
 			}
 		</div>
 	} else {
-		page = <h1>user not  logged in </h1>
+		page = <h1>user not logged in </h1>
 	}
 	return (
 		<GreatDiv >
-			<Login setter={setUser} />
-			{page}
-			
-		
+			<Login setter={setUser} setToken={setToken} />
+			{page}		
 		</GreatDiv>
 	);
 }
 
 export default App;
 
-const GreatDiv = styled.button`
+const GreatDiv = styled.div`
   /* color: grey; */
-  background-color: rgb(224, 224, 224);
-  border: none;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 `;
