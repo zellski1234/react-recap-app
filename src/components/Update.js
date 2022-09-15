@@ -13,19 +13,35 @@ function Update({token}) {
     };
 
   return (
-    <GreatDiv>
-         <form onSubmit={submitHandler}>
-            <div>
-                <label> New Name:
-                    <input onChange={(e) => setName(e.target.value)}/>
-                </label>
-                <br></br>
-            </div>
+    <MainDiv>
+        <GreatDiv>
+                <form onSubmit={submitHandler}>
+                <div>
+                    <label> New Name:
+                        <input onChange={(e) => setName(e.target.value)}/>
+                    </label>
+                    <br></br>
+                </div>
 
-            <button type="submit" >click here to change name</button>
+                <button type="submit" >click here to change name</button>
 
-        </form>
-    </GreatDiv>
+            </form>
+        </GreatDiv>
+        <GreatDiv>
+                <form onSubmit={submitHandler}>
+                <div>
+                    <label> New Email:
+                        <input onChange={(e) => setName(e.target.value)}/>
+                    </label>
+                    <br></br>
+                </div>
+
+                <button type="submit" >click here to change Email</button>
+
+            </form>
+        </GreatDiv>
+    </MainDiv>
+    
   )
 }
 
@@ -40,6 +56,7 @@ const GreatDiv = styled.div`
     justify-content: center;
     text-align: center;
     margin-top: 20px;
+    margin: 10px 20px;
     form {
         display: flex;
         align-content: center;
@@ -56,4 +73,13 @@ const GreatDiv = styled.div`
         text-align: center;
     }
     
+`
+const MainDiv = styled.div`
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5px;    
 `

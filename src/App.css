@@ -29,6 +29,7 @@ button:hover {
 	background-image: -o-linear-gradient(top, #0bc25e, #149c51);
 	background-image: linear-gradient(to bottom, #0bc25e, #149c51);
 	text-decoration: none;
+	cursor: pointer;
   }
 
 .search {
@@ -75,3 +76,73 @@ button:hover {
 	background-color: #eee;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
+.usernames{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	align-self: center;
+	transition: 2s;
+}
+
+.listnames{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	align-self: center;
+	transition: 2s;	
+	display: none;
+}
+
+.showContain{
+	visibility: visible;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 25%;
+	transition: 2s visibility;
+	background-color: #eee;
+	border-radius: 30px;
+	border: 1px solid #123231;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	margin: 10px 0px 0px 0px;
+	font-weight: 500;
+}
+
+.contain p {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0px 5px;
+	transition: 2s;
+	font-weight: 600;
+}
+
+.showlist {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	align-self: center;
+	transition: 2s;
+  }
+  
+  .hideContain{
+	visibility: hidden;
+	display: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 25%;
+	transition: 0.1s visibility;
+	background-color: #eee;
+	border-radius: 30px;
+	border: 1px solid #123231;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	margin: 10px 0px 0px 0px;
+	font-weight: 500;
+  }

@@ -33,7 +33,10 @@ function App() {
 	// page if statement
 	if (user) {
 		page = <div>
-			<ListUser clicked={clicked2} setClicked={setClicked2}/>
+			<div>
+				<ListUser clicked={clicked2} setClicked={setClicked2}/>
+				<p>Hello</p>
+			</div>
 			<Update clicked2={clicked2} setClicked2={setClicked2} token={token} />
 			<h1>My Movie App</h1>
 			<div className="search">
