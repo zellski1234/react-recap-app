@@ -46,29 +46,41 @@ button:hover {
 	justify-content: center;
 	cursor: pointer;
 }
-
+.movieContainer{
+	background-color: #1ba559;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow: hidden;
+	
+}
+body{
+	overflow-x: hidden;
+}
 .container {
 	max-width: 80vw;
+	border-radius: 20px;
 	background-color: rgb(224, 224, 224);
 	display: flex;
 	overflow-x: auto;
 	margin: 10px;
 	padding: 10px;
 	font-weight: bold;
+	/* overflow: hidden; */
 }
 
 .container img {
-	max-width: calc(230px+1em);
+	width: 300px;
 	margin: 10px;
-	min-height: 300px;
-		
-}
+	min-height: 100px;
+	
+ } 
 
 .container p {
 	font-size: 20px;
 	padding: 0px;
 	margin: 1px;
-}
+} */
 
 .movie {
 	margin: 10px;
@@ -76,7 +88,16 @@ button:hover {
 	background-color: #eee;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-
+#deleteBtn{
+	background-color: red;
+	border: none;
+	background-image: none;
+}
+#deleteBtn:hover{
+	background-color: rgb(167, 1, 1);
+	border: none;
+	background-image: none;
+}
 .usernames{
 	display: flex;
 	justify-content: center;
@@ -85,8 +106,8 @@ button:hover {
 	align-items: center;
 	align-self: center;
 	transition: 2s;
+	background-color: #1ba559;
 }
-
 .listnames{
 	display: flex;
 	justify-content: center;
@@ -98,20 +119,6 @@ button:hover {
 	display: none;
 }
 
-.showContain{
-	visibility: visible;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	width: 25%;
-	transition: 2s visibility;
-	background-color: #eee;
-	border-radius: 30px;
-	border: 1px solid #123231;
-	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-	margin: 10px 0px 0px 0px;
-	font-weight: 500;
-}
 
 .contain p {
 	display: flex;
@@ -129,20 +136,59 @@ button:hover {
 	align-items: center;
 	align-self: center;
 	transition: 2s;
-  }
-  
-  .hideContain{
-	visibility: hidden;
-	display: none;
+}
+
+.showContain{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	width: 25%;
-	transition: 0.1s visibility;
+	max-width: 25%;
+	height: 100%;
 	background-color: #eee;
 	border-radius: 30px;
 	border: 1px solid #123231;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 	margin: 10px 0px 0px 0px;
 	font-weight: 500;
+	animation: example 0.2s;
+	/* overflow: hidden; */
+}
+.hideContain{
+	display: flex;
+	overflow: hidden;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 25%;
+	background-color: #eee;
+	border-radius: 30px;
+	/* border: 1px solid #123231; */
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	margin: 10px 0px 0px 0px;
+	font-weight: 500;
+	height: 0vh;
   }
+  .userListItem{
+	max-width: 100%;
+	min-width: 50%;
+  }
+  .userListItem:hover{
+	background-color: #ebebeb;
+	border-radius: 50px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+	cursor: pointer;
+  }
+ 
+  @keyframes example {
+	0%   {transform: scale(0);}
+	25%  {transform: scale(0.25);}
+	50%  {transform: scale(0.5);}
+	75%  {transform: scale(0.75);}
+	100% {transform: scale(1);}
+  }
+  /* @keyframes example {
+	0%   {transform: scaleX(-120);}
+	25%  {transform: scale(0.25);}
+	50%  {transform: scale(0.5);}
+	75%  {transform: scale(0.75);}
+	100% {transform: scale(1);}
+  } */

@@ -14,17 +14,17 @@ function ListUser({setter, clicked, setClicked}) {
 
     useEffect (() =>{
         loadUsernames()
-    },)
+    },[clicked])
 
     return (
         <div className='usernames'>
             <button onClick={()=> {setClicked(!clicked);  setShow(!show) }}>{!clicked ? "List Users Names" : "Hide User Names"} </button>
             <div className='showlist'>
-                        <div className={show ? "showContain" : "hideContain"}>
-                            {usernames.map((user, index) => (
-                                <p key={index}>{`User ${index+1}: ${user}`}</p>
-                            ))}
-                        </div>
+                <div className={show ? "showContain" : "hideContain"}>
+                    {usernames?.map((user, index) => (
+                        <p className="userListItem"key={index}>{`User ${index+1}: ${user}`}</p>
+                    ))}
+                </div>
             </div>
         </div>
     )

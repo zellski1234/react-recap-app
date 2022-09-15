@@ -1,21 +1,25 @@
 import React from 'react'
 import { useState } from "react";
-import { update, listUser } from '../utils';
+import { updateName, updateEmail } from '../utils';
 import styled from 'styled-components';
 
 function Update({token}) {
     const [name, setName] = useState();
+    const [email, setEmail] = useState();
 
-    async function submitHandler (e) {
+    async function submitHandlerName (e) {
         e.preventDefault();
-        await update(token, name)
-        listUser()
+        await updateName(token, name)
+    };
+    async function submitHandlerEmail (e) {
+        e.preventDefault();
+        await updateEmail(token, email)
     };
 
   return (
     <MainDiv>
         <GreatDiv>
-                <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandlerName}>
                 <div>
                     <label> New Name:
                         <input onChange={(e) => setName(e.target.value)}/>
@@ -28,10 +32,10 @@ function Update({token}) {
             </form>
         </GreatDiv>
         <GreatDiv>
-                <form onSubmit={submitHandler}>
+                <form onSubmit={submitHandlerEmail}>
                 <div>
                     <label> New Email:
-                        <input onChange={(e) => setName(e.target.value)}/>
+                        <input onChange={(e) => setEmail(e.target.value)}/>
                     </label>
                     <br></br>
                 </div>
