@@ -8,7 +8,7 @@ import Update from './components/Update';
 import DeleteUsers from './components/DeleteUsers';
 import UserModal from './components/Modal';
 
-const API_URL = 'http://omdbapi.com?apikey=a28de950'
+const API_URL = process.env.REACT_APP_API_MOVIE
 
 function App() {
 
@@ -51,7 +51,7 @@ function App() {
 				<h1>You are logged as {user}</h1>
 				<ListUser clicked={clicked2} setClicked={setClicked2}/>
 			{showUpdate ? (
-				<Update token={token} />
+				<Update setUser={setUser} token={token} />
 				): (
 					<>
 					</>

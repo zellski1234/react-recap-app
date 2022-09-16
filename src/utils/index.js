@@ -1,6 +1,6 @@
 export const login = async ( email, password, setter, setLoggedIn, setClicked, setStatus) => {
     try {
-        const response = await fetch("http://localhost:5000/user/login", {
+        const response = await fetch(`${process.env.REACT_APP_API_USER}user/login`, {
             method:"POST",
             headers: {
                 "Content-Type": "application/json",
@@ -34,7 +34,7 @@ export const login = async ( email, password, setter, setLoggedIn, setClicked, s
 
 export const signup = async ( name, email, password, setter, setLoggedIn, setClicked, setStatus) => {
     try {
-        const response = await fetch("http://localhost:5000/user/signup", {
+        const response = await fetch(`${process.env.REACT_APP_API_USER}user/signup`, {
             method:"POST",
             headers: {
                 "Content-Type": "application/json",
@@ -68,7 +68,7 @@ export const signup = async ( name, email, password, setter, setLoggedIn, setCli
 
 export const listUser = async ( setter ) => {
     try {
-        const response = await fetch("http://localhost:5000/user/", {
+        const response = await fetch(`${process.env.REACT_APP_API_USER}user/`, {
             method:"GET",
             headers: {"Content-Type": "application/json"}
         })
@@ -85,7 +85,7 @@ export const listUser = async ( setter ) => {
 
 export const updateName = async ( token, name ) => {
     try {
-        const response = await fetch("http://localhost:5000/user/editname/", {
+        const response = await fetch(`${process.env.REACT_APP_API_USER}user/editname/`, {
             method:"PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -106,7 +106,7 @@ export const updateName = async ( token, name ) => {
 
 export const updateEmail = async ( token, email ) => {
     try {
-        const response = await fetch("http://localhost:5000/user/editemail/", {
+        const response = await fetch(`${process.env.REACT_APP_API_USER}user/editemail/`, {
             method:"PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -127,7 +127,7 @@ export const updateEmail = async ( token, email ) => {
 
 export const deleteUser = async ( token, setLoggedIn, setClicked ) => {
     try {
-        const response = await fetch("http://localhost:5000/user/", {
+        const response = await fetch(`${process.env.REACT_APP_API_USER}user/`, {
             method:"DELETE",
             headers: {
                 "Content-Type": "application/json",

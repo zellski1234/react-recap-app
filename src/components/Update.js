@@ -3,12 +3,13 @@ import { useState } from "react";
 import { updateName, updateEmail } from '../utils';
 import styled from 'styled-components';
 
-function Update({token}) {
+function Update({token, setUser}) {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
 
     async function submitHandlerName (e) {
         e.preventDefault();
+        await setUser(name)
         await updateName(token, name)
     };
     async function submitHandlerEmail (e) {
