@@ -125,6 +125,28 @@ export const updateEmail = async ( token, email ) => {
 
 }
 
+export const updatePassword = async ( token, password ) => {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_API_USER}user/editpassword/`, {
+            method:"PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}` 
+            },
+            body: JSON.stringify({
+                "password": password
+            })
+        })
+        const data = await response.json()
+        console.log(`Your has been updated: ${password}`)
+        console.log(data)
+
+    } catch (error) {
+        console.error(error)
+    }
+
+}
+
 export const deleteUser = async ( token, setLoggedIn, setClicked ) => {
     try {
         const response = await fetch(`${process.env.REACT_APP_API_USER}user/`, {
@@ -148,18 +170,3 @@ export const deleteUser = async ( token, setLoggedIn, setClicked ) => {
 
 
 
-
-// export const displayUsers = async (setter) => {
-//     try {
-//         const response = await fetch("http://localhost:5001/displayUsers", {
-//             method: "GET",
-//             headers: {"Content-Type": "application/json"}
-//         });
-//         const data = await response.json()
-//         const usernames = data.users.map(users => users.username)
-//         console.log(usernames)
-//         return usernames
-//     } catch (error)  {
-//         console.log(error)
-//     }
-// }

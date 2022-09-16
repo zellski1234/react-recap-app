@@ -34,7 +34,7 @@ function Signup({setter, setToken, setLoggedIn, setClicked, setStatus}) {
 
             <div>
                 <label> Password:
-                    <input onChange={(e) => setPassword(e.target.value)}/>
+                    <input type="password" id="pass" name="password" minlength="8" require onChange={(e) => setPassword(e.target.value)}/>
                 </label>
                 <br></br>
             </div>

@@ -1,11 +1,12 @@
 import React from 'react'
 import { useState } from "react";
-import { updateName, updateEmail } from '../utils';
+import { updateName, updateEmail, updatePassword } from '../utils';
 import styled from 'styled-components';
 
 function Update({token, setUser}) {
     const [name, setName] = useState();
     const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
 
     async function submitHandlerName (e) {
         e.preventDefault();
@@ -15,6 +16,10 @@ function Update({token, setUser}) {
     async function submitHandlerEmail (e) {
         e.preventDefault();
         await updateEmail(token, email)
+    };
+    async function submitHandlerPassword (e) {
+        e.preventDefault();
+        await updatePassword(token, password)
     };
 
   return (
@@ -42,6 +47,19 @@ function Update({token, setUser}) {
                 </div>
 
                 <button type="submit" >click here to change Email</button>
+
+            </form>
+        </GreatDiv>
+        <GreatDiv>
+                <form onSubmit={submitHandlerPassword}>
+                <div>
+                    <label> New Password:
+                        <input type="password" id="pass" name="password" minlength="8" require onChange={(e) => setPassword(e.target.value)}/>
+                    </label>
+                    <br></br>
+                </div>
+
+                <button type="submit" >click here to change Password</button>
 
             </form>
         </GreatDiv>

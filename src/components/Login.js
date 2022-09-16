@@ -35,10 +35,11 @@ function Login({setter, setToken, setLoggedIn, setClicked, setStatus}) {
 
             <div>
                 <label> Password:
-                    <input onChange={(e) => {setPassword(e.target.value); checkText(e.target.value)}}/>
+                    <input type="password" id="pass" name="password" minlength="1" required onChange={(e) => {setPassword(e.target.value); checkText(e.target.value)}}/>
                 </label>
                 <br></br>
             </div>
+
 
             <button type="submit">Click here to login</button>
             
